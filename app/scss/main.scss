@@ -98,6 +98,7 @@ main {
 	&__caption {
 		margin-bottom: 0.5em;
 		padding: 0;
+		user-select: none;
 	}
 
 	&__groop {
@@ -167,6 +168,43 @@ main {
 
 .rating__star:hover~.rating__star {
 	background-image: url('https://cdn.glitch.com/be154eac-f8a7-4b55-9350-27cb2d6ff6c0%2Foff.svg');
+}
+
+article {
+	background: #777;
+	height: 50vh;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.cards {
+	display: flex;
+
+	--distance: -4rem;
+}
+
+.card {
+	background: #fff;
+	border-radius: 1rem;
+	padding: 2rem;
+	box-shadow: 4px 4px 12px 2px rgba(black, 0.75);
+	transition: 0.2s;
+
+	&:not(:first-child) {
+		margin-left: var(--distance);
+	}
+}
+
+.card:focus-within,
+.card:hover {
+	transform: translateY(-1rem);
+}
+
+.card:focus-within~.card,
+.card:hover~.card {
+	transform: translateX(calc(var(--distance) * -1));
 }
 
 
